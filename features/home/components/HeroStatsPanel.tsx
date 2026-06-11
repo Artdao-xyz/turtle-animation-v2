@@ -8,6 +8,9 @@ const stakeWidgetShell =
 
 const widgetWidth = "w-[200px] max-w-full lg:w-[280px]";
 
+// Temporarily bypass Benchmark Rates and Turtle.xyz Rates cards in the hero dashboard.
+const SHOW_RATE_CARDS = false;
+
 function StatDivider() {
   return <div className="h-px w-full shrink-0 bg-stroke-subtle" aria-hidden="true" />;
 }
@@ -212,16 +215,16 @@ export function HeroStatsPanel() {
         <RevealOnScroll>
           <CoordinatedCapitalCard />
         </RevealOnScroll>
-        {/* Mobile: only the Capital Coordinated card shows (cleaner); the rate
-            pills return at lg. */}
-        <div className="hidden flex-col items-end gap-[14px] lg:flex">
-          <RevealOnScroll delayMs={120}>
-            <RatesCard title="Benchmark Rates" rates={benchmarkRates} />
-          </RevealOnScroll>
-          <RevealOnScroll delayMs={240}>
-            <RatesCard title="Turtle.xyz Rates" rates={turtleRates} />
-          </RevealOnScroll>
-        </div>
+        {SHOW_RATE_CARDS ? (
+          <div className="hidden flex-col items-end gap-[14px] lg:flex">
+            <RevealOnScroll delayMs={120}>
+              <RatesCard title="Benchmark Rates" rates={benchmarkRates} />
+            </RevealOnScroll>
+            <RevealOnScroll delayMs={240}>
+              <RatesCard title="Turtle.xyz Rates" rates={turtleRates} />
+            </RevealOnScroll>
+          </div>
+        ) : null}
       </div>
     </aside>
   );
