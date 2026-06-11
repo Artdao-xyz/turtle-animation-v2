@@ -54,11 +54,11 @@ export function CommandCenter() {
               matters. All trustless, all self-custodial.
             </p>
           </SectionIntroCopy>
-          {/* self-start: hug the label (the intro column stretches children). */}
+          {/* lg:self-start: hug the label (the intro column stretches children). */}
           <CtaPill
             href="#"
             label="Manage Assets with Turtle"
-            className="section-intro__cta self-start"
+            className="section-intro__cta self-center lg:self-start"
           />
         </SectionIntro>
       </RevealOnScroll>

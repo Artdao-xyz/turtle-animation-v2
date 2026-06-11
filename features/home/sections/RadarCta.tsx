@@ -26,7 +26,7 @@ export function RadarCta() {
             personalized.
           </p>
 
-          <div className="inline-flex flex-wrap justify-center gap-2.5">
+          <div className="section-intro__cta inline-flex flex-wrap justify-center gap-2.5">
             <CtaPill href="#" label="Explore Deals" className="w-[240px]" />
             <CtaPill href="#" label="Launch with Turtle" className="w-[240px]" />
           </div>

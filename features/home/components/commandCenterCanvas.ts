@@ -3,22 +3,36 @@ import { GRID_SPACING } from "@/features/home/components/commandCenterGrid";
 /** Figma Card-Deals visual — width / height. */
 export const COMMAND_CENTER_VISUAL_ASPECT = 570 / 499;
 
-/** Figma Card-Deals / chart visual inset — top-left to bottom-right. */
+/** Figma Card-Deals / chart visual inset — top-left to bottom-right (dark theme). */
 export const VISUAL_CANVAS_GRADIENT_START = "#2D2E2D";
 export const VISUAL_CANVAS_GRADIENT_END = "#161716";
+
+/** Pre-invert pair for light theme — .theme-invert maps these to --surface-hover / --surface-1. */
+const VISUAL_CANVAS_GRADIENT_LIGHT_START = "#100E10";
+const VISUAL_CANVAS_GRADIENT_LIGHT_END = "#010101";
 
 /** Tailwind classes for non-canvas chart / feature frames. */
 export const visualCanvasBgClass =
   "bg-[var(--surface-1)] [background-image:linear-gradient(to_bottom_right,var(--surface-hover)_0%,var(--surface-1)_100%)]";
+
+function isLightTheme() {
+  return (
+    typeof document !== "undefined" &&
+    document.documentElement.getAttribute("data-theme") === "light"
+  );
+}
 
 export function drawVisualCanvasBackground(
   ctx: CanvasRenderingContext2D,
   width: number,
   height: number,
 ) {
+  const [start, end] = isLightTheme()
+    ? [VISUAL_CANVAS_GRADIENT_LIGHT_START, VISUAL_CANVAS_GRADIENT_LIGHT_END]
+    : [VISUAL_CANVAS_GRADIENT_START, VISUAL_CANVAS_GRADIENT_END];
   const gradient = ctx.createLinearGradient(0, 0, width, height);
-  gradient.addColorStop(0, VISUAL_CANVAS_GRADIENT_START);
-  gradient.addColorStop(1, VISUAL_CANVAS_GRADIENT_END);
+  gradient.addColorStop(0, start);
+  gradient.addColorStop(1, end);
   ctx.fillStyle = gradient;
   ctx.fillRect(0, 0, width, height);
 }

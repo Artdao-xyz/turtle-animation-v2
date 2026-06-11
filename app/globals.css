@@ -241,6 +241,19 @@ body {
   margin-top: clamp(14px, 1.4vw, 18px);
 }
 
+/* Mobile: center CTA pills inline as a group, even when the intro column is
+   left-aligned (items-start). Desktop alignment is set per-section. */
+@media (max-width: 1023px) {
+  .section-intro__cta {
+    align-self: center;
+  }
+
+  div.section-intro__cta {
+    display: inline-flex;
+    justify-content: center;
+  }
+}
+
 .section-intro__copy p {
   font-size: clamp(0.9375rem, 1.2vw, 1.125rem);
   line-height: 1.4;
