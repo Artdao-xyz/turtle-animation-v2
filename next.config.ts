@@ -1,11 +1,6 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* Named when the repo lived in iCloud-synced ~/Desktop (".nosync" excluded the
-     build from sync). The repo moved to ~/dev on 2026-06-10; the name is kept so
-     tsconfig includes and tooling paths stay stable. */
-  distDir: ".next.nosync",
-
   /* Lets phones on the LAN load the dev site (http://192.168.1.73:3000 or
      http://Mac-mini.local:3000). Without this, Next blocks cross-origin dev
      resources and client JS (blob, card canvases) never boots on the phone. */

@@ -12,9 +12,6 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
-    // Our renamed dist dir (next.config.ts distDir) — not covered by the
-    // default ".next/**" ignore; without this, eslint lints build output.
-    ".next.nosync/**",
   ]),
 ]);
 
